@@ -14,7 +14,7 @@ function App() {
       <div id="header">
         <div id="header_area">
           <Link to="/">
-            <img src="/images/icons/logo.png" alt="~" />
+            <img src="/images/icons/hargi_icon.png" alt="~" />
           </Link>
           <Button
             size="large"

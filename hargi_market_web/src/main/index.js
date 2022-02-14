@@ -22,7 +22,7 @@ function MainPage() {
   return (
     <div>
       <div id="banner">
-        <img src="/images/banners/banner1.png" alt="~" />
+        <img src="/images/banners/hargi_banner.png" alt="~" />
       </div>
       <h1>판매되는 상품들</h1>
       <div id="product_list">
