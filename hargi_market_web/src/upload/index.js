@@ -47,7 +47,11 @@ function UploadPage() {
           label={<div className="upload_label">상품 가격</div>}
           rules={[{ required: true, message: "상품 가격을 입력해주세요." }]}
         >
-          <InputNumber className="upload_price" size="large" defaultValue={0} />
+          <InputNumber
+            className="upload_price"
+            size="large"
+            initialvalues={0}
+          />
         </Form.Item>
         <Divider />
         <Form.Item
