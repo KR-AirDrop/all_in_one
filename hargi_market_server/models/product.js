@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(20),
       allowNull: false,
     },
-    prict: {
+    price: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
