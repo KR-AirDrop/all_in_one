@@ -20,7 +20,8 @@ body,
 
 #header_area {
   height: 100%;
-  width: 1024px;
+  max-width: 1024px;
+  width: 100%;
   background-color: white;
   margin: 0 auto;
   display: flex;
@@ -34,8 +35,9 @@ body,
 }
 
 #body {
-  height: 100vh;
-  width: 1024px;
+  min-height: 100vh;
+  max-width: 1024px;
+  width: 100%;
   background-color: white;
   margin: 0 auto;
   padding-bottom: 24px;
@@ -43,4 +45,20 @@ body,
 
 #footer {
   height: 200px;
+  background-color: gray;
+}
+
+@media screen and (max-width: 400px) {
+  .product_card {
+    width: 100px !important; /* !important는 꼭 필요한 상황 아니면 비추, 코드가 더러워질수 있음*/
+  }
+  #header {
+    padding: 0 8px;
+  }
+  #body {
+    padding: 0 8px;
+  }
+  .ant-carousel {
+    margin: 0 -8px;
+  }
 }
