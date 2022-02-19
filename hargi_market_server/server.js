@@ -3,6 +3,17 @@ const cors = require("cors");
 const app = express();
 const models = require("./models");
 const port = 8080;
+const multer = require("multer");
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "uploads/");
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    },
+  }),
+});
 
 app.use(express.json());
 app.use(cors());
@@ -66,6 +77,14 @@ app.get("/products/:id", (req, res) => {
       console.error(error);
       res.send("상품 조회 에러");
     });
+});
+
+app.post("/image", upload.single("image"), (req, res) => {
+  const file = req.file;
+  console.log(file);
+  res.send({
+    imageUrl: file.path,
+  });
 });
 
 app.listen(port, () => {
