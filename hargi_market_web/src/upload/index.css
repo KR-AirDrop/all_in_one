@@ -43,3 +43,10 @@
   font-size: 18px;
   width: 80px;
 }
+
+#upload_image {
+  width: 200px;
+  height: 200px;
+  margin: 16px;
+  object-fit: contain;
+}

@@ -17,6 +17,7 @@ const upload = multer({
 
 app.use(express.json());
 app.use(cors());
+app.use("/uploads", express.static("uploads"));
 
 app.get("/products", async (req, res) => {
   models.Product.findAll({
@@ -37,15 +38,16 @@ app.get("/products", async (req, res) => {
 
 app.post("/products", (req, res) => {
   const body = req.body;
-  const { name, description, price, seller } = body;
-  if (!name || !description || !price || !seller) {
-    console.log("필수 정보를 입력해주세요.");
+  const { name, description, price, seller, imageUrl } = body;
+  if (!name || !description || !price || !seller || !imageUrl) {
+    res.status(400).send("필수 정보를 입력해주세요.");
   }
   models.Product.create({
     name,
     description,
     price,
     seller,
+    imageUrl,
   })
     .then((result) => {
       console.log("상품 생성 결과 : ", result);
@@ -55,7 +57,7 @@ app.post("/products", (req, res) => {
     })
     .catch((error) => {
       console.error(error);
-      res.send("상품 업로드에 문제가 발생했습니다.");
+      res.status(400).send("상품 업로드에 문제가 발생했습니다.");
     });
 });
 
@@ -75,7 +77,7 @@ app.get("/products/:id", (req, res) => {
     })
     .catch((error) => {
       console.error(error);
-      res.send("상품 조회 에러");
+      res.status(400).send("상품 조회 에러");
     });
 });
 
